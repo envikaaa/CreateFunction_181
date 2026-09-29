@@ -1,21 +1,22 @@
 def convert_temperature(value, unit):
-    if unit.upper() == 'C':
+    unit = unit.strip().upper()
+    if unit == 'C':
         return (value * 9/5) + 32
-    elif unit.upper() == 'F':
+    elif unit == 'F':
         return (value - 32) * 5/9
     else:
-        print("Unit harus 'C' atau 'F'")
+        return None
 
-    print("======= KONVERSI SUHU =======")
 
-    input_suhu = float(input("Masukkan nilai suhu: "))
-    unit = input("Masukkan satuan suhu ('C' untuk Celcius atau 'F' untuk Fahrenheit): ")
-    konversi = covert_temperature(input_suhu, unit)
-    if unit.upper() == 'C':
-        print(f"{input_suhu}°C = {konversi:.2f}°F")
-    elif unit.upper() == 'F':
-        print(f"{input_suhu}°F = {konversi:.2f}°C")
-    else:
-        print("Satuan tidak dikenal.")
+print("======= KONVERSI SUHU =======")
 
-        
+input_suhu = float(input("Masukkan nilai suhu: "))
+unit = input("Masukkan satuan suhu ('C' untuk Celcius atau 'F' untuk Fahrenheit): ").strip().upper()
+konversi = convert_temperature(input_suhu, unit)
+
+if konversi is None:
+    print("Satuan tidak dikenal. Gunakan 'C' atau 'F'.")
+elif unit == 'C':
+    print(f"{input_suhu}°C = {konversi:.2f}°F")
+else:
+    print(f"{input_suhu}°F = {konversi:.2f}°C")
