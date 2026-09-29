@@ -12,5 +12,8 @@ def convert_temperature(value, unit):
     unit = input("Masukkan satuan suhu ('C' untuk Celcius atau 'F' untuk Fahrenheit): ")
     konversi = covert_temperature(input_suhu, unit)
     if unit.upper() == 'C':
-        print(f"{input_suhu}C") = {konversi:.2f}F"
-    
+        print(f"{input_suhu}°C = {konversi:.2f}°F")
+    elif unit.upper() == 'F':
+        print(f"{input_suhu}°F = {konversi:.2f}°C")
+    else:
+        print("Satuan tidak dikenal.")
